@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <!-- header start -->
+    <header class="header">
+        <div class="container">
+            <div
+                class="header-inner d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="index.html" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+                    <img src="assets/images/logo.png" alt="logo">
+                </a>
+
+                <ul class="nav col-12 col-lg-2 col-xl-2 col-xxl-2 me-xl-auto mb-2 ms-4 justify-content-start mb-md-0">
+                    <li><a href="#" class="nav-link px-2 link-secondary"><img src="assets/images/bar.svg" alt="bar"></a>
+                    </li>
+                    <li><a href="#" class="nav-link px-2 link-dark">Menu</a></li>
+                </ul>
+
+                <form class="col-12  col-lg-2 col-xl-3 col-xxl-4 mb-3 mb-lg-0 me-lg-3">
+                    <input type="search" class="form-control" placeholder="Birthday party, Music," aria-label="Search">
+                </form>
+
+                <ul class="nav col-12  col-lg-5 col-xl-5 col-xxl-4  mb-2 ms-4 justify-content-center mb-md-0 header-action-end">
+                    <li><a href="#" class="nav-link px-2 link-dark wishlist"><img src="assets/images/1.svg" alt="heart"
+                                class="wishlist-heart"></a> <span class="wishlist-count"> 5 </span></li>
+                    <li><a href="#" class="nav-link px-2 link-dark user">George</a> <span><i
+                                class="fa-regular fa-user"></i></span></li>
+                    <li><a href="signup.html" class="nav-link px-2 link-dark btn"><button class="btn btn-primary ms-4">Register
+                                your Service</button></a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!-- header end -->
+
+
+
+    <!-- ===============>> account start here <<================= -->
+    <section class="account padding-top padding-bottom">
+        <div class="container">
+            <div class="account__wrapper">
+                <div class="row g-4 justify-content-center">
+                    <div class="col-12 col-lg-10 ">
+                        <div class="account__content account__content--style1">
+
+                            <!-- account tittle -->
+                            <div class="account__header">
+                                <h3>Settings</h3>
+                                <span>Profile</span>
+                            </div>
+
+                            <!-- account tittle -->
+                            <div class="account__subheader">
+                                <h5>Profile</h5>
+                                <p>
+                                    Update your photo and personal details here.
+                                </p>
+                            </div>
+
+
+                            <!-- account form -->
+                            <form action="#" class="account__form needs-validation mt-5" novalidate>
+                                <div class="row g-4">
+                                    <div class="col-12 col-md-6">
+                                        <div>
+                                            <label for="first-name" class="form-label">First name</label>
+                                            <input class="form-control" type="text" id="first-name"
+                                                placeholder="Ex. Jhon">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div>
+                                            <label for="last-name" class="form-label">Last name</label>
+                                            <input class="form-control" type="text" id="last-name"
+                                                placeholder="Ex. Doe">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div>
+                                            <label for="account-email" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="account-email"
+                                                placeholder="Enter your email" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div>
+                                            <label for="postal-code" class="form-label">Postal Code</label>
+                                            <input class="form-control" type="text" id="postal-code"
+                                                placeholder="42222">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div>
+                                            <label for="address" class="form-label">Address</label>
+                                            <input class="form-control" type="text" id="address"
+                                                placeholder="San Francisco">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div>
+                                            <label for="city" class="form-label">City</label>
+                                            <input class="form-control" type="text" id="city"
+                                                placeholder="San Francisco">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div>
+                                            <label for="country" class="form-label">Country</label>
+                                            <input class="form-control" type="text" id="country"
+                                                placeholder="North America">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="action text-end mt-4">
+                                    <button type="submit" class="btn cutom-btn btn-primary mt-4">Save</button>
+                                    <button type="submit" class="btn cutom-btn btn-outline-primary mt-4">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ===============>> account end here <<================= -->
+
+
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/all.min.js"></script>
+</body>
+
+</html>

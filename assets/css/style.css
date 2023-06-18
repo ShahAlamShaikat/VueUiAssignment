@@ -1,0 +1,285 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #F6FBF7;
+    color: #211F54;
+}
+
+
+.padding-top {
+    padding-block-start: 100px;
+}
+
+.padding-bottom {
+    padding-block-end: 100px;
+}
+
+
+/* header style start */
+.header {
+    background-color: #FFFFFF;
+    box-shadow: 0px 2px 6px rgba(20, 20, 43, 0.06);
+}
+
+.header-inner {
+    padding-block: 26px;
+}
+
+.header-action-end li {
+    display: flex;
+    align-items: center;
+    grid-area: 5px;
+    cursor: pointer;
+}
+
+.wishlist-heart {
+    position: relative;
+
+}
+
+.wishlist-count {
+    position: relative;
+    content: "";
+    height: 15px;
+    width: 15px;
+    background-color: #4a3aff;
+    border-radius: 50%;
+    font-size: 10px;
+    top: -5px;
+    left: -15px;
+    color: white;
+    font-weight: bold;
+    place-items: center;
+    display: grid;
+}
+
+
+
+/* header style end */
+
+
+/* button style start */
+.btn {
+    width: 100%;
+    padding: 14px 28px;
+    text-transform: capitalize;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.btn-primary {
+    background-color: #4a3aff;
+    border-color: #4a3aff;
+}
+
+.cutom-btn {
+    width: 200px;
+}
+
+.action {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: end;
+}
+
+/* button style end */
+
+
+
+/* form design start */
+.form-control {
+    padding: 0.765rem 1rem;
+    border: 1px solid #DCDDEB;
+    border-radius: 8px;
+}
+
+.form-control::placeholder {
+    font-weight: 400;
+    color: #A0A3BD;
+
+}
+
+.form-control:focus {
+    outline: none;
+    border: 1px solid #a8a8af;
+    box-shadow: none;
+
+}
+
+.form-pass {
+    position: relative;
+}
+
+
+.form-pass__toggle {
+    position: absolute;
+    background: none;
+    border: none;
+    color: #4E4775;
+    font-weight: 600;
+    right: 0.75em;
+    top: 45px;
+    z-index: 9;
+}
+
+.agrement {
+    letter-spacing: 0.01em;
+    color: #546881;
+}
+
+.agrement a {
+    color: #3498DB;
+}
+
+.olter-action a {
+    text-decoration: none;
+    color: #3B30D4;
+
+}
+
+
+ul.pass-terms {
+    padding-inline-start: 0px;
+}
+
+.pass-terms li {
+    list-style: none;
+}
+
+
+.pass-terms li {
+    font-size: 14px;
+    color: #A0A3BD;
+}
+
+.pass-terms li svg {
+    color: #4A3AFF;
+}
+
+/* form design end */
+
+
+/* account style start */
+.account__content {
+    background-color: #FFFFFF;
+    padding: 45px;
+    border: 1px solid #DCDDEB;
+    border-radius: 20px;
+}
+
+
+
+.account__header {
+    margin-block-end: 48px;
+}
+
+.account__header h2 {
+    font-size: 38px;
+    font-weight: 700;
+    margin-block-end: 15px;
+}
+
+.account__header h3 {
+    font-weight: 700;
+    margin-block-end: 35px;
+}
+
+
+.account__header .style1 {
+    font-size: 24px;
+    color: #4E4775;
+}
+
+.account__header .style2 {
+    font-size: 16px;
+    color: #8692A6;
+}
+
+.account__header .style2>a {
+    text-decoration: none;
+    color: #3498DB;
+}
+
+.account__header span {
+    padding: 10px 14px;
+    background-color: #F2F1FF;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.account__subheader {
+    padding-block-end: 10px;
+    border-bottom: 1px solid #E9EAEC;
+}
+
+.account__subheader h5 {
+    font-weight: 500;
+}
+
+.account__subheader p {
+    color: #6E7191;
+    margin-block-end: 15px;
+}
+
+
+
+.account__switch {
+    margin-block-start: 25px;
+    text-align: center;
+}
+
+.account__switch p {
+    letter-spacing: 0.06em;
+    color: #A0A3BD;
+}
+
+.account__switch p a {
+    color: #4a3aff;
+    text-decoration: none;
+}
+
+
+
+
+.account__step {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-block-end: 70px;
+}
+
+.account__step .account__step-back a {
+    text-decoration: none;
+}
+
+.account__step .account__step-back a>i,
+svg {
+    color: #000;
+}
+
+.account__step .account__step-back span {
+    color: #8692A6;
+}
+
+.account__step .account__step-option p {
+    margin-bottom: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+    text-align: end;
+    color: #6E7191;
+}
+
+.account__step .account__step-option .hint {
+    color: #A0A3BD;
+    text-align: end;
+}
+
+
+/* account style end */

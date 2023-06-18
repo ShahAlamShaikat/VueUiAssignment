@@ -1,0 +1,19 @@
+<template>
+<div>
+<h1>Index Page</h1>
+</div>
+</template>
+
+<script>
+
+export default {
+    data() {
+        return {
+            show: true,
+        };
+    },
+    beforeMount() {
+        
+    }
+};
+</script>
