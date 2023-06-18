@@ -7,7 +7,7 @@
                     <div class="col-12 col-lg-8 ">
                         <div class="account__content account__content--style1">
 
-                            <!-- account tittle -->
+                            <!-- account title -->
                             <div class="account__header">
                                 <h2>Welcome Back</h2>
                                 <p class="stlye1">Log in to your Events in Minutes account to pick up where you left off and continue
@@ -17,20 +17,27 @@
 
 
                             <!-- account form -->
-                            <form action="#" class="account__form needs-validation mt-5" novalidate>
+                            <form action="#" class="account__form needs-validation mt-5" @submit.prevent="login">
                                 <div class="row g-4">
                                     <div class="col-12">
                                         <div>
                                             <label for="account-email" class="form-label">Email Id</label>
                                             <input type="email" class="form-control" id="account-email"
-                                                placeholder="Enter your email" required>
+                                                placeholder="Enter your email" v-model="form.email" required>
+
+                                            <small class="text-danger" v-if="errors.email">{{
+                                              errors.email[0]
+                                            }}</small>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-pass">
                                             <label for="account-pass" class="form-label">Password</label>
                                             <input type="password" class="form-control showhide-pass" id="account-pass"
-                                                placeholder="Password" required>
+                                                placeholder="Password" v-model="form.password" required>
+                                            <small class="text-danger" v-if="errors.password">{{
+                                              errors.password[0]
+                                            }}</small>
 
                                             <button type="button" id="btnToggle" class="form-pass__toggle"><i
                                                     class="fa-regular fa-eye-slash"></i></button>
@@ -39,14 +46,14 @@
                                 </div>
 
                                 <p class="olter-action mt-4">
-                                    <a href="forgot-pass.html">Forgot Password</a>
+                                    <a href="forgot-password">Forgot Password</a>
                                 </p>
                                 <button type="submit" class="btn btn-primary d-block mt-5">Continue</button>
                             </form>
 
 
                             <div class="account__switch">
-                                <p>New to Events in Minutes? <a href="signup.html">Sign up here to get started.</a></p>
+                                <p>New to Events in Minutes? <a href="signup">Sign up here to get started.</a></p>
                             </div>
                         </div>
                     </div>
@@ -65,10 +72,13 @@ export default {
       form: {
         email: null,
         password: null,
-        login_with_password: true,
       },
-      loginStatus: "Login",
-      OTPSent: false,
+      userData: {
+        access_token:'',
+        name:'',
+        id:'',
+        email:''
+      },
       errors: {},
     };
   },
@@ -76,33 +86,73 @@ export default {
 
   methods: {
     async login() {
-      this.loginStatus = "Loging...";
       const response = await $axios.post('https://apps.techhubai.com/eim/api/signin', this.form)
-      if (response) {
-        User.responseAfterLogin(response);
-        if (process.client) {
-          localStorage.setItem("token", response.data.access_token);
-        }
-        // this.$axios.setHeader('Authorization', localStorage.getItem("token"));
-        $axios.defaults.headers.common["Authorization"] = localStorage.getItem("token")
-          ? "Bearer " + localStorage.getItem("token") : "";
-        Toast.fire({
-          icon: "success",
-          title: "Signed in successfully",
-        });
-        if (this.$route.name === "login") {
-          this.$router.push("/user-dashboard");
-        } else {
-          this.$router.go();
-        }
-      }
+        .then((response) => {
 
+          
+        if (response) {
+          if (process.client) {
+            localStorage.setItem("token", response.data.access_token);
+          }
+          $axios.defaults.headers.common["Authorization"] = localStorage.getItem("token")
+            ? "Bearer " + localStorage.getItem("token") : "";
+
+            Toast.fire({
+              icon: "success",
+              title: "Signed in successfully",
+            });
+
+          this.updateUserData();
+
+          } else {
+
+            Toast.fire({
+              icon: 'error',
+              title: "Something went wrong. Try again."
+            })
+
+
+          }
+
+        }).catch((error) => {
+        
+          Toast.fire({
+            icon: 'error',
+            title: error?.response.data.message
+          })
+
+        })
+
+    },
+    async updateUserData() {
+
+      const response = await $axios.post('https://apps.techhubai.com/eim/api/verify_token', {token: localStorage.getItem("token")})
+        .then((response) => {
+
+          this.userData.access_token = localStorage.getItem("token");
+          this.userData.name = response.data.full_name;
+          this.userData.id = response.data.user_id;
+          this.userData.email = this.form.email;
+          
+          User.responseAfterLogin(this.userData);
+
+          this.$router.push("/dashboard");
+          this.$router.go();
+
+        }).catch((error) => {
+
+          Toast.fire({
+            icon: 'error',
+            title: "Something went wrong. Try again."
+          })
+
+        })
     }
   },
   mounted() {
-    // this.settings = settings.settings;
     if (User && User.loggedIn()) {
       this.$router.push("/dashboard");
+      
     }
   },
 };
